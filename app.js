@@ -17,15 +17,12 @@ new Vue({
       this.monsterHealth = 100;
     },
     attack: function(){
-      this.monsterHealth -= Math.floor(Math.random()*10)+1;
-        if(this.gameOver()) {
-          return;
-        }
-      this.playerHealth -= Math.floor(Math.random()*10)+3;
-      this.gameOver();
+      this.playerAttack(10);
+      this.monsterAttack();
     },
     specialAttack: function(){
-
+      this.playerAttack(20);
+      this.monsterAttack();
     },
     heal: function(){
 
@@ -47,6 +44,16 @@ new Vue({
         return true;
       }
       return false;
+    },
+    playerAttack: function(attack) {
+      this.monsterHealth -= Math.floor(Math.random()*attack)+1;
+      if(this.gameOver()) {
+        return;
+      }
+    },
+    monsterAttack: function() {
+      this.playerHealth -= Math.floor(Math.random()*10)+3;
+      this.gameOver();
     }
   }
 })
