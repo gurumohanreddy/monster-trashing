@@ -36,12 +36,12 @@
       </div>
     </section>
     <section class="button-controls border border-light shadow-sm p-3 mb-5 bg-light rounded">
-      <button type="button" class="btn btn-secondary" v-if="startGame" @click="startGame = !startGame">Start</button>
+      <button type="button" class="btn btn-secondary" v-if="!gameRunning" @click="startGame">Start</button>
       <template v-else>
-        <button type="button" class="btn btn-primary">Attack</button>
-        <button type="button" class="btn btn-success">Special Attack</button>
-        <button type="button" class="btn btn-warning">Heal</button>
-        <button type="button" class="btn btn-info" @click="startGame = !startGame">Give Up</button>
+        <button type="button" class="btn btn-primary" @click="attack">Attack</button>
+        <button type="button" class="btn btn-success" @click="specialAttack">Special Attack</button>
+        <button type="button" class="btn btn-warning" @click="heal">Heal</button>
+        <button type="button" class="btn btn-info" @click="stopGame">Give Up</button>
       </template>
     </section>
 
