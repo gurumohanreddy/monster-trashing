@@ -45,14 +45,11 @@
       </template>
     </section>
 
-    <section class="row button-controls border border-light shadow-sm p-3 mb-5 bg-light rounded">
+    <section class="row button-controls border border-light shadow-sm p-3 mb-5 bg-light rounded" v-if="logs.length > 0">
       <div class="col-md">
         <ul>
-          <li class="text-info">
-            <span>Hello</span>
-          </li>
-          <li class="text-danger">
-            <span>Hello</span>
+          <li v-for="log in logs">
+            <span :class="log.isPlayer ? 'text-info' : 'text-danger'">{{log.value}}</span>
           </li>
         </ul>
       </div>
